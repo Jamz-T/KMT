@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,8 +9,7 @@
     <!-- 
     - favicon
   -->
-    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
-
+    <link rel="shortcut icon" type="image/ico" href="./favicon1.png" />
     <!-- 
     - custom css link
   -->
@@ -44,43 +43,66 @@
           <ion-icon name="close-outline" class="close"></ion-icon>
         </button>
 
-        <nav class="navbar">
-          <div class="container">
-            <ul class="navbar-list">
-              <li>
-                <a href="#solution" class="navbar-link" data-navbar-link>解决方案</a>
-              </li>
+           <nav class="navbar">
+      <!-- 产品（带下拉） -->
+      <div class="navbar-item has-dropdown">
+        <a href="#" class="navbar-link dropdown-toggle">产品</a>
+        <ul class="dropdown-menu">
+          <li><a href="/products/device1" class="navbar-link">全自动血细胞采集系统</a></li>
+          <li><a href="/products/device2" class="navbar-link">全自动血液分离系统</a></li>
+          <li><a href="/products/device3" class="navbar-link">全自动细胞处理系统</a></li>
+          <li><a href="/products/device3" class="navbar-link">配件</a></li>
+        </ul>
+      </div>
 
-              <li>
-                <a href="#product" class="navbar-link" data-navbar-link
-                  >产品</a
-                >
-              </li>
+      <!-- 应用案例（带下拉） -->
+      <div class="navbar-item has-dropdown">
+        <a href="#" class="navbar-link dropdown-toggle">应用案例</a>
+        <ul class="dropdown-menu">
+          <li><a href="/cases/hospital" class="navbar-link">医院应用</a></li>
+          <li><a href="/cases/lab" class="navbar-link">实验室应用</a></li>
+          <li><a href="/cases/research" class="navbar-link">科研合作</a></li>
+        </ul>
+      </div>
 
-              <li>
-                <a href="#case" class="navbar-link" data-navbar-link
-                  >应用案例</a
-                >
-              </li>
+      <!-- 动态资讯（带下拉） -->
+      <div class="navbar-item has-dropdown">
+        <a href="#" class="navbar-link dropdown-toggle">动态资讯</a>
+        <ul class="dropdown-menu">
+          <li><a href="/news/company" class="navbar-link">公司动态</a></li>
+          <li><a href="/news/industry" class="navbar-link">行业资讯</a></li>
+          <li><a href="/news/events" class="navbar-link">展会活动</a></li>
+        </ul>
+      </div>
 
-              <li>
-                <a href="#dynamics" class="navbar-link" data-navbar-link>动态资讯</a>
-              </li>
+      <div class="navbar-item has-dropdown">
+        <a href="#" class="navbar-link dropdown-toggle">技术服务</a>
+        <ul class="dropdown-menu">
+          <li><a href="/news/company" class="navbar-link">项目承接</a></li>
+          <li><a href="/news/industry" class="navbar-link">定制服务</a></li>
+        </ul>
+      </div>
 
-              <li>
-                <a href="#about" class="navbar-link" data-navbar-link
-                  >关于康明泰</a
-                >
-              </li>
-            </ul>
-          </div>
-        </nav>
+      <!-- 关于康明泰（带下拉） -->
+      <div class="navbar-item has-dropdown">
+        <a href="#" class="navbar-link dropdown-toggle">关于康明泰</a>
+        <ul class="dropdown-menu">
+          <li><a href="/about/intro" class="navbar-link">公司简介</a></li>
+          <li><a href="/about/team" class="navbar-link">核心团队</a></li>
+          <li><a href="/about/contact" class="navbar-link">联系我们</a></li>
+        </ul>
+      </div>
+    </nav>
 
-        <button class="btn btn-secondary">
+        <!-- <button class="btn btn-secondary">
           <span>Get Started</span>
 
           <ion-icon name="chevron-forward-outline"></ion-icon>
-        </button>
+        </button> -->
+        <button class="btn btn-lang" aria-label="Language switch">
+  <img src="./assets/images/trans.png" alt="Language" />
+</button>
+
       </div>
     </header>
 
@@ -90,18 +112,14 @@
         - #solution
       -->
 
-        <section class="hero" id="solution">
+        <section class="hero" id="">
           <img
-            src="./assets/images/shape1.png"
+            src="./assets/images/main.png"
             alt="Illustration art"
             class="shape shape-1"
           />
-          <img
-            src="./assets/images/shape2.png"
-            alt="Illustration art"
-            class="shape shape-2"
-          />
-          <img
+
+          <!-- <img
             src="./assets/images/shape3.png"
             alt="Illustration art"
             class="shape shape-3"
@@ -110,424 +128,13 @@
           <div class="container">
             <figure class="hero-banner">
               <img
-                src="./assets/images/hero-banner.png"
+                src="./assets/images/main.png"
                 alt="Illustration art"
                 loading="lazy"
                 class="w-100"
               />
             </figure>
-
-            <div class="hero-content">
-              <h2 class="h1 hero-title">
-                Secure IT solutions for a more secure environment
-              </h2>
-
-              <p class="section-text">
-                Velit hendrerit sit auctor tempor sem. Congue mi tempor
-                condimentum felis arcu, non cursus. Nulla pharetra porttitor sed
-                platea arcu et leo odio.
-              </p>
-
-<button class="btn btn-primary">
-                <span>Get Started Now</span>
-
-                <ion-icon name="chevron-forward-outline"></ion-icon>
-              </button>
-
-            </div>
-          </div>
-        </section>
-
-        <!-- 
-        - #product
-      -->
-
-        <section class="product" id="product">
-          <div class="container">
-            <p class="section-subtitle">How Can Help You</p>
-
-            <h2 class="h2 section-title">
-              We’re helping teams do their best work
-            </h2>
-
-            <ul class="features-list">
-              <li>
-                <div class="features-card">
-                  <div class="card-icon">
-                    <img
-                      src="./assets/images/features-icon-1.png"
-                      alt="Illustration icon"
-                    />
-                  </div>
-
-                  <h3 class="h3 card-title">Zero Configuration</h3>
-
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, conse ctetur adipiscing elit.
-                    Sed est non feugiat sagittis.
-                  </p>
-
-                  <a href="#" class="card-link">
-                    <span>Learn More</span>
-
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
-                  </a>
-                </div>
-              </li>
-
-              <li>
-                <div class="features-card">
-                  <div class="card-icon">
-                    <img
-                      src="./assets/images/features-icon-2.png"
-                      alt="Illustration icon"
-                    />
-                  </div>
-
-                  <h3 class="h3 card-title">Code Security</h3>
-
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, conse ctetur adipiscing elit.
-                    Sed est non feugiat sagittis.
-                  </p>
-
-                  <a href="#" class="card-link">
-                    <span>Learn More</span>
-
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
-                  </a>
-                </div>
-              </li>
-
-              <li>
-                <div class="features-card">
-                  <div class="card-icon">
-                    <img
-                      src="./assets/images/features-icon-3.png"
-                      alt="Illustration icon"
-                    />
-                  </div>
-
-                  <h3 class="h3 card-title">Team Management</h3>
-
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, conse ctetur adipiscing elit.
-                    Sed est non feugiat sagittis.
-                  </p>
-
-                  <a href="#" class="card-link">
-                    <span>Learn More</span>
-
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
-                  </a>
-                </div>
-              </li>
-
-              <li>
-                <div class="features-card">
-                  <div class="card-icon">
-                    <img
-                      src="./assets/images/features-icon-4.png"
-                      alt="Illustration icon"
-                    />
-                  </div>
-
-                  <h3 class="h3 card-title">Access Controlled</h3>
-
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, conse ctetur adipiscing elit.
-                    Sed est non feugiat sagittis.
-                  </p>
-
-                  <a href="#" class="card-link">
-                    <span>Learn More</span>
-
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
-                  </a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- 
-        - #case
-      -->
-
-        <section class="case" id="case">
-          <div class="container">
-            <figure class="service-banner">
-              <img
-                src="./assets/images/service-1.png"
-                alt="Illustration art"
-                loading="lazy"
-                class="w-100"
-              />
-            </figure>
-
-            <div class="service-content">
-              <p class="section-subtitle">Services We Offer</p>
-
-              <h2 class="h2 section-title">
-                We are here, to help your startup business
-              </h2>
-
-              <ul class="service-list">
-                <li class="service-item">
-                  <div class="service-item-icon">
-                    <ion-icon name="checkmark-outline"></ion-icon>
-                  </div>
-
-                  <h3 class="h3 service-item-title">Cloud Databases</h3>
-                </li>
-
-                <li class="service-item">
-                  <div class="service-item-icon">
-                    <ion-icon name="checkmark-outline"></ion-icon>
-                  </div>
-
-                  <h3 class="h3 service-item-title">Website Hosting</h3>
-                </li>
-
-                <li class="service-item">
-                  <div class="service-item-icon">
-                    <ion-icon name="checkmark-outline"></ion-icon>
-                  </div>
-
-                  <h3 class="h3 service-item-title">Remote Desktop</h3>
-                </li>
-
-                <li class="service-item">
-                  <div class="service-item-icon">
-                    <ion-icon name="checkmark-outline"></ion-icon>
-                  </div>
-
-                  <h3 class="h3 service-item-title">File Backup</h3>
-                </li>
-              </ul>
-            </div>
-
-            <figure class="service-banner">
-              <img
-                src="./assets/images/service-2.png"
-                alt="Illustration art"
-                loading="lazy"
-                class="w-100"
-              />
-            </figure>
-
-            <div class="service-content">
-              <p class="section-subtitle">Our Services</p>
-
-              <h2 class="h2 section-title">
-                Best IT & technology service in your area
-              </h2>
-
-              <ul class="service-list">
-                <li class="service-item">
-                  <div class="service-item-icon">
-                    <ion-icon name="checkmark-outline"></ion-icon>
-                  </div>
-
-                  <h3 class="h3 service-item-title">Design & Development</h3>
-                </li>
-
-                <li class="service-item">
-                  <div class="service-item-icon">
-                    <ion-icon name="checkmark-outline"></ion-icon>
-                  </div>
-
-                  <h3 class="h3 service-item-title">
-                    Android Apps Development
-                  </h3>
-                </li>
-
-                <li class="service-item">
-                  <div class="service-item-icon">
-                    <ion-icon name="checkmark-outline"></ion-icon>
-                  </div>
-
-                  <h3 class="h3 service-item-title">Laravel Web Development</h3>
-                </li>
-
-                <li class="service-item">
-                  <div class="service-item-icon">
-                    <ion-icon name="checkmark-outline"></ion-icon>
-                  </div>
-
-                  <h3 class="h3 service-item-title">React Web Development</h3>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- 
-        - #dynamics
-      -->
-
-        <section class="dynamics" id="dynamics">
-          <div class="container">
-            <p class="section-subtitle">Latest News</p>
-
-            <h2 class="h2 section-title">Our latest articles & resources</h2>
-
-            <ul class="blog-list">
-              <li>
-                <div class="blog-card">
-                  <figure class="blog-banner">
-                    <a href="#">
-                      <img
-                        src="./assets/images/blog-1.jpg"
-                        alt="How is technology working with new things?"
-                        loading="lazy"
-                        class="w-100"
-                      />
-                    </a>
-                  </figure>
-
-                  <div class="blog-content">
-                    <ul class="blog-meta-list">
-                      <li class="blog-meta-item">
-                        <ion-icon name="pricetag-outline"></ion-icon>
-
-                        <a href="#" class="blog-meta-link">Technology</a>
-                      </li>
-
-                      <li class="blog-meta-item">
-                        <ion-icon name="calendar-number-outline"></ion-icon>
-
-                        <time class="blog-meta-time" datetime="2026-02-25"
-                          >25 Feb, 2026</time
-                        >
-                      </li>
-                    </ul>
-
-                    <h3 class="h3 blog-title">
-                      <a href="#">How is technology working with new things?</a>
-                    </h3>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="blog-card">
-                  <figure class="blog-banner">
-                    <a href="#">
-                      <img
-                        src="./assets/images/blog-2.jpg"
-                        alt="Top 10 important tips on IT services & design"
-                        loading="lazy"
-                        class="w-100"
-                      />
-                    </a>
-                  </figure>
-
-                  <div class="blog-content">
-                    <ul class="blog-meta-list">
-                      <li class="blog-meta-item">
-                        <ion-icon name="pricetag-outline"></ion-icon>
-
-                        <a href="#" class="blog-meta-link">Design</a>
-                      </li>
-
-                      <li class="blog-meta-item">
-                        <ion-icon name="calendar-number-outline"></ion-icon>
-
-                        <time class="blog-meta-time" datetime="2026-02-25"
-                          >25 Feb, 2026</time
-                        >
-                      </li>
-                    </ul>
-
-                    <h3 class="h3 blog-title">
-                      <a href="#"
-                        >Top 10 important tips on IT services & design</a
-                      >
-                    </h3>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="blog-card">
-                  <figure class="blog-banner">
-                    <a href="#">
-                      <img
-                        src="./assets/images/blog-3.jpg"
-                        alt="How our company works in different ways"
-                        loading="lazy"
-                        class="w-100"
-                      />
-                    </a>
-                  </figure>
-
-                  <div class="blog-content">
-                    <ul class="blog-meta-list">
-                      <li class="blog-meta-item">
-                        <ion-icon name="pricetag-outline"></ion-icon>
-
-                        <a href="#" class="blog-meta-link">Startup</a>
-                      </li>
-
-                      <li class="blog-meta-item">
-                        <ion-icon name="calendar-number-outline"></ion-icon>
-
-                        <time class="blog-meta-time" datetime="2026-02-25"
-                          >25 Feb, 2026</time
-                        >
-                      </li>
-                    </ul>
-
-                    <h3 class="h3 blog-title">
-                      <a href="#">How our company works in different ways</a>
-                    </h3>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- 
-        - #about
-      -->
-
-        <section class="about" id="about">
-          <div class="container">
-            <figure class="newsletter-banner">
-              <img
-                src="./assets/images/newsletter.png"
-                alt="Illustration art"
-                loading="lazy"
-                class="w-100"
-              />
-            </figure>
-
-            <div class="newsletter-content">
-              <p class="section-subtitle">Subscribe Our Newsletter</p>
-
-              <h2 class="h2 section-title">
-                The latest resources, sent to your inbox weekly
-              </h2>
-
-              <form action="" class="newsletter-form">
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="Enter your email address"
-                  class="input-field"
-                />
-
-                <button type="submit" class="btn btn-primary">
-                  <span>Subscribe Now</span>
-
-                  <ion-icon name="chevron-forward-outline"></ion-icon>
-                </button>
-              </form>
-            </div>
-          </div>
+          </div> -->
         </section>
       </article>
     </main>

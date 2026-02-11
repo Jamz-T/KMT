@@ -15,7 +15,7 @@
    * colors
    */
 
-  --space-cadet: hsl(224, 48%, 22%);
+  --space-cadet: hsl(0, 0%, 0%);
   --red-crayola: hsla(50, 100%, 50%, 1);
   --black-coral: hsl(219, 13%, 44%);
   --blue-ryb: hsl(244, 86%, 59%);
@@ -117,40 +117,6 @@ body {
   #REUSED STYLE
 \*-----------------------------------*/
 
-.lang-btn {
-  position: fixed;
-  right: 20px;       /* 距离右边 20px */
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: none;
-  background-color: #f3e8a8; /* 黄色背景 */
-  color: #333;
-  font-weight: bold;
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  z-index: 9999; /* 保证浮在最上层 */
-}
-
-.lang-btn:hover {
-  transform: scale(1.1);
-  background-color: #f7f0b0;
-}
-
-.container {
-  padding-inline: 15px;
-}
-
-.w-100 {
-  width: 100%;
-}
-
 .h1,
 .h2,
 .h3 {
@@ -188,6 +154,29 @@ body {
   padding: 14px 25px;
   border-radius: var(--radius-4);
   transition: var(--transition);
+}
+
+.btn-lang {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: var(--radius-4);
+  cursor: pointer;
+}
+
+.btn-lang img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  display: block;
+}
+
+.btn-lang:is(:hover, :focus-visible) {
+  background: var(--red-crayola);
 }
 
 .btn-primary {
@@ -232,13 +221,16 @@ body {
   background: var(--white);
   box-shadow: 0 2px 25px hsla(0, 0%, 0%, 0.1);
   padding-block: 16px;
-  overflow: hidden;
+  /* 核心修复1：取消header的overflow:hidden，让下拉菜单显示 */
+  overflow: visible !important;
   transition: 0.35s ease-out;
-  z-index: 4;
+  z-index: 9999; /* 核心修复2：提升层级，避免被遮挡 */
 }
 
+/* 核心修复3：移除固定高度限制，让header高度自适应导航内容 */
 .header.nav-active {
-  height: 250px;
+  height: auto;
+  padding-bottom: 20px;
   transition: 0.5s ease-out;
 }
 
@@ -290,6 +282,9 @@ body {
   background: var(--white);
   padding-block: 10px;
   visibility: hidden;
+  /* 核心修复4：navbar取消溢出隐藏，提升层级 */
+  overflow: visible;
+  z-index: 9999;
 }
 
 .header.nav-active .navbar {
@@ -315,6 +310,70 @@ body {
 
 .header .btn {
   display: none;
+}
+
+/* 下拉菜单核心样式（放在HEADER区块内） */
+.navbar-item {
+  position: relative;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.dropdown-menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 15px;
+  background: var(--white);
+  width: calc(100% - 20px);
+  height: auto;
+  overflow: visible;
+  /* 核心新增：圆角样式 */
+  border-radius: var(--radius-8); /* 使用现有变量，统一圆角风格 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 增加阴影，突出圆角 */
+  overflow: hidden; /* 关键：让圆角生效，裁剪内部内容 */
+}
+
+.navbar-item.active .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu .navbar-link {
+  padding: 8px 15px; /* 调整内边距，适配圆角 */
+  font-size: calc(var(--fs-4) - 2px);
+  font-weight: var(--fw-500);
+  display: block;
+  opacity: 1 !important;
+  transition: var(--transition); /* 新增过渡，hover更丝滑 */
+}
+
+/* 新增：下拉菜单项hover效果，适配圆角 */
+.dropdown-menu .navbar-link:hover {
+  background-color: var(--cultured); /* 浅灰色背景，和整体风格统一 */
+  color: var(--red-crayola);
+}
+
+/* PC端下拉菜单样式（媒体查询内） */
+@media (min-width: 992px) {
+  .navbar-item:hover .dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    padding: 8px 0; /* 调整内边距，适配圆角 */
+    background: var(--white);
+    /* PC端圆角样式 */
+    border-radius: var(--radius-8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* 确保PC端圆角生效 */
+  }
+
+  .dropdown-menu .navbar-link {
+    padding: 10px 18px; /* PC端增大内边距，体验更好 */
+    font-size: calc(var(--fs-4) - 2px);
+    font-weight: var(--fw-500);
+  }
 }
 
 /*-----------------------------------*\
@@ -773,7 +832,7 @@ body {
 }
 
 .go-top:is(:hover, :focus) {
-  background: var(--blue-ryb);
+  background: var(--red-crayola);
   color: var(--white);
 }
 
@@ -980,6 +1039,8 @@ body {
 
   .navbar {
     all: unset;
+    display: flex;
+    gap: 20px;
   }
 
   .navbar-link {
@@ -993,6 +1054,29 @@ body {
 
   .navbar-list {
     display: flex;
+  }
+
+  /* PC端下拉菜单样式 */
+  .navbar-item {
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  .navbar-item:hover .dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 10px 0;
+    background: var(--white);
+  }
+
+  .dropdown-menu .navbar-link {
+    padding: 8px 15px;
+    font-size: calc(var(--fs-4) - 2px);
+    font-weight: var(--fw-500);
   }
 
   .header .btn {
@@ -1163,24 +1247,48 @@ body {
    * HERO
    */
 
-  .hero {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-  }
+.hero {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  /* 给hero容器设置基础尺寸，确保自适应有参考 */
+  width: 100vw; /* 宽度占满整个视口 */
+  min-height: 100vh; /* 最小高度占满视口，可根据需求调整 */
+}
 
-  .hero .shape {
-    display: block;
-    position: absolute;
-    user-select: none;
-    z-index: -1;
-  }
+.hero .shape {
+  display: block;
+  position: absolute;
+  user-select: none;
+  z-index: -1;
+}
 
+.hero .shape-1 {
+  top: 0;
+  left: 0;
+  /* 核心自适应设置 */
+  width: 100%; /* 宽度跟随容器自适应 */
+  /* max-width: 1200px; 限制最大宽度，避免大屏下图片过大（可自定义） */
+  height: auto; /* 高度自动，保持图片比例 */
+  /* 可选：如果想让图片按屏幕比例缩放 */
+  min-width: 320px; /* 移动端最小宽度，避免过小 */
+  object-fit: contain; /* 保证图片完整显示，不裁剪 */
+}
+
+/* 大屏（2K）适配 */
+@media (min-width: 2560px) {
   .hero .shape-1 {
-    top: 0;
-    left: -80px;
-    height: 100%;
+    max-width: 1600px; /* 2K屏下放宽最大宽度 */
   }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .hero .shape-1 {
+    max-width: 100%; /* 移动端完全占满容器宽度 */
+    min-width: unset; /* 取消最小宽度限制 */
+  }
+}
 
   .hero .shape-2 {
     bottom: 60px;
