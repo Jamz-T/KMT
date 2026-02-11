@@ -16,7 +16,7 @@
    */
 
   --space-cadet: hsl(224, 48%, 22%);
-  --red-crayola: hsl(342, 100%, 50%);
+  --red-crayola: hsla(50, 100%, 50%, 1);
   --black-coral: hsl(219, 13%, 44%);
   --blue-ryb: hsl(244, 86%, 59%);
   --cultured: hsl(0, 0%, 96%);
