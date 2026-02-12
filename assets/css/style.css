@@ -276,7 +276,6 @@ body {
 
 .navbar {
   position: static;
-  display: flex;
   top: 70px;
   left: 0;
   width: 100%;
