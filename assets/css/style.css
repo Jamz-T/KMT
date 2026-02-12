@@ -276,6 +276,7 @@ body {
 
 .navbar {
   position: static;
+  display: flex;
   top: 70px;
   left: 0;
   width: 100%;
@@ -1294,7 +1295,7 @@ body {
 @media (max-width: 768px) {
   .hero .shape-1 {
     max-width: 100%; /* 移动端完全占满容器宽度 */
-    min-width: unset; /* 取消最小宽度限制 */
+    width: 100%;
   }
 }
 
