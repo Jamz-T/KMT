@@ -275,7 +275,7 @@ body {
 }
 
 .navbar {
-  position: absolute;
+  position: static;
   top: 70px;
   left: 0;
   width: 100%;
@@ -353,10 +353,18 @@ body {
   color: var(--red-crayola);
 }
 
+@media (min-width: 992px) {
+  .navbar {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+
 /* PC端下拉菜单样式（媒体查询内） */
 @media (min-width: 992px) {
   .navbar-item:hover .dropdown-menu {
-    display: block;
+    display: flex;
     position: absolute;
     top: 100%;
     left: 0;
