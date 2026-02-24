@@ -1290,6 +1290,24 @@ body {
     height: 100%;
   }
 
+  /* PC端横屏背景 */
+@media screen and (min-width: 768px) {
+  .hero {
+    background-image: url('./assets/images/main.png');
+    background-position: center center; /* 居中显示 */
+    background-size: cover;
+  }
+}
+
+/* 手机端竖屏背景 */
+@media screen and (max-width: 767px) {
+  .hero {
+    background-image: url('./assets/images/main_phone.png');
+    background-position: center top;   /* 重点区域在顶部 */
+    background-size: cover;
+  }
+}
+
   /**
    * FEATURES
    */
