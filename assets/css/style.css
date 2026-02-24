@@ -1257,47 +1257,28 @@ body {
 
 .hero {
   position: relative;
-  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
   overflow: hidden;
-  /* 给hero容器设置基础尺寸，确保自适应有参考 */
-  width: 100vw; /* 宽度占满整个视口 */
-  min-height: 100vh; /* 最小高度占满视口，可根据需求调整 */
 }
 
-.hero .shape {
-  display: block;
+.hero-bg {
   position: absolute;
-  user-select: none;
-  z-index: -1;
+  inset: 0;           /* 等于 top:0 left:0 right:0 bottom:0 */
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;  /* 关键：铺满 */
+  object-position: center;
+
+  z-index: 0;
 }
 
-.hero .shape-1 {
-  top: 0;
-  left: 0;
-  /* 核心自适应设置 */
-  width: 100%; /* 宽度跟随容器自适应 */
-  /* max-width: 1200px; 限制最大宽度，避免大屏下图片过大（可自定义） */
-  height: auto; /* 高度自动，保持图片比例 */
-  /* 可选：如果想让图片按屏幕比例缩放 */
-  min-width: 320px; /* 移动端最小宽度，避免过小 */
-  object-fit: contain; /* 保证图片完整显示，不裁剪 */
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
-
-/* 大屏（2K）适配 */
-@media (min-width: 2560px) {
-  .hero .shape-1 {
-    max-width: 1600px; /* 2K屏下放宽最大宽度 */
-  }
-}
-
-/* 移动端适配 */
-@media (max-width: 768px) {
-  .hero .shape-1 {
-    max-width: 100%; /* 移动端完全占满容器宽度 */
-    width: 100%;
-  }
-}
-
   .hero .shape-2 {
     bottom: 60px;
     left: 30%;
