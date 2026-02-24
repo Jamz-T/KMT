@@ -213,7 +213,7 @@ body {
 \*-----------------------------------*/
 
 .header {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -252,6 +252,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* 给右边按钮做额外容器 */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo img {
@@ -306,10 +313,6 @@ body {
 
 .navbar-link:is(:hover, :focus) {
   color: var(--red-crayola);
-}
-
-.header .btn {
-  display: none;
 }
 
 /* 下拉菜单核心样式（放在HEADER区块内） */
@@ -382,6 +385,31 @@ body {
     font-size: calc(var(--fs-4) - 2px);
     font-weight: var(--fw-500);
   }
+}
+
+@media (max-width: 991px) {
+
+  .navbar {
+    position: absolute;
+    top: 100%;         /* 紧贴 header 底部 */
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    flex-direction: column;
+
+    /* 动画 */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    z-index: 999;
+  }
+
+  .header.nav-active .navbar {
+    max-height: 800px;  /* 足够大即可 */
+  }
+
 }
 
 /*-----------------------------------*\
@@ -1255,59 +1283,82 @@ body {
    * HERO
    */
 
+/* 全局重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*-----------------------------------*
+  #HERO
+*-----------------------------------*/
+
+/* 全屏容器基础样式 */
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100vh; /* 高度自适应屏幕 */
   overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;           /* 等于 top:0 left:0 right:0 bottom:0 */
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;  /* 关键：铺满 */
-  object-position: center;
-
-  z-index: 0;
-}
-
-.hero-content {
-  position: relative;
+  background-color: #f0f8ff; /* 兜底背景色 */
+  background-image: url('../images/main.png'); /* 默认背景图 */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: background 0.5s ease-in-out;
   z-index: 1;
 }
-  .hero .shape-2 {
-    bottom: 60px;
-    left: 30%;
-  }
 
-  .hero .shape-3 {
-    top: 0;
-    right: -80px;
-    height: 100%;
-  }
-
-  /* PC端横屏背景 */
-@media screen and (min-width: 768px) {
-  .hero {
-    background-image: url('./assets/images/main.png');
-    background-position: center center; /* 居中显示 */
-    background-size: cover;
-  }
+/* 装饰元素层级 */
+.hero .shape-3 {
+  position: absolute;
+  top: 0;
+  right: -80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
 }
 
-/* 手机端竖屏背景 */
+/* 内容层级 */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/*-----------------------------------*
+  #MEDIA QUERIES
+*-----------------------------------*/
+
+/* 移动端：767px及以下，使用手机专用背景图 */
 @media screen and (max-width: 767px) {
   .hero {
-    background-image: url('./assets/images/main_phone.png');
-    background-position: center top;   /* 重点区域在顶部 */
-    background-size: cover;
+    background-image: url('../images/main_phone.png');
+    background-size: contain;
+    background-position: center center;
   }
 }
 
+/* 平板端：768px~1199px，使用PC图 */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .hero {
+    background-image: url('../images/main.png');
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+/* 大屏端：1200px及以上，使用PC图 */
+@media screen and (min-width: 1200px) {
+  .hero {
+    background-image: url('../images/main.png');
+    background-size: cover;
+    background-position: center center;
+  }
+}
   /**
    * FEATURES
    */
